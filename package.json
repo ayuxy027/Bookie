@@ -1,0 +1,35 @@
+{
+  "name": "bookie",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "JITI_ALIAS=\"{\\\"@/\\\":\\\"$PWD/src/\\\"}\" node --no-warnings --import jiti/register --test tests/*.test.ts",
+    "bench": "node --no-warnings --import jiti/register bench/bench.ts",
+    "vad-assets": "mkdir -p public/vad && cp node_modules/@ricky0123/vad-web/dist/bundle.min.js node_modules/@ricky0123/vad-web/dist/vad.worklet.bundle.min.js node_modules/@ricky0123/vad-web/dist/silero_vad_v5.onnx node_modules/onnxruntime-web/dist/ort.wasm.min.js node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.wasm node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.mjs public/vad/",
+    "postinstall": "npm run vad-assets",
+    "bench:vad": "node --no-warnings --import jiti/register bench/vad.ts"
+  },
+  "dependencies": {
+    "@ricky0123/vad-web": "0.0.31",
+    "next": "15.5.29",
+    "onnxruntime-web": "1.22.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.29",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
